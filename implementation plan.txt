@@ -1,0 +1,781 @@
+```text
+You are a Senior Full Stack Engineer, Security Engineer, Software Architect, UI/UX Designer, and React Native Developer.
+
+Your task is to build a production-quality academic project called:
+
+"Secure End-to-End Encrypted Communication System"
+
+The objective is to develop a real-time secure messaging application that demonstrates modern cryptographic concepts in a practical and visual way.
+
+This is NOT just a chat application.
+It is an educational secure communication platform that visually explains how encryption works while providing real-time messaging.
+
+======================================================================
+PROJECT OBJECTIVE
+======================================================================
+
+Build a secure messaging application where users can:
+
+• Register and Login
+• Search users by unique username
+• Send friend requests
+• Accept/Reject requests
+• Chat only after becoming friends
+• Send encrypted text messages
+• Send encrypted images
+• Send encrypted voice messages
+• Send PDF and DOCX files
+• View the complete encryption process for every message
+
+The application should resemble a modern messaging application while focusing on cryptography and security.
+
+======================================================================
+TECH STACK
+======================================================================
+
+Frontend
+---------
+• React Native
+• TypeScript
+• React Navigation
+• Axios
+• Socket.IO Client
+• React Native Reanimated
+• React Native Paper (or NativeWind)
+
+Backend
+--------
+• Node.js
+• Express.js
+• Socket.IO
+• JWT Authentication
+• bcrypt
+• Multer
+• Node.js Crypto Module
+
+Database
+---------
+• MongoDB
+• Mongoose
+• Mongo Express (Development Only)
+
+Storage
+--------
+• Cloudinary
+(Store images, voice notes, PDF and DOCX files)
+
+======================================================================
+PROJECT STRUCTURE
+======================================================================
+
+frontend/
+backend/
+docker-compose.yml
+README.md
+
+Backend Structure
+
+backend/
+
+src/
+
+controllers/
+
+routes/
+
+middlewares/
+
+models/
+
+services/
+
+socket/
+
+utils/
+
+config/
+
+uploads/
+
+Frontend Structure
+
+frontend/
+
+src/
+
+screens/
+
+components/
+
+navigation/
+
+hooks/
+
+services/
+
+contexts/
+
+utils/
+
+assets/
+
+types/
+
+======================================================================
+APPLICATION MODULES
+======================================================================
+
+Module 1
+Authentication
+
+Module 2
+User Discovery
+
+Module 3
+Friend Request System
+
+Module 4
+Real-Time Secure Messaging
+
+Module 5
+Encryption Visualization
+
+======================================================================
+MODULE 1
+AUTHENTICATION
+======================================================================
+
+Features
+
+• Register
+• Login
+• Logout
+• JWT Authentication
+• Password Hashing using bcrypt
+
+Every user must contain
+
+Name
+
+Username (Unique)
+
+Email
+
+Password
+
+Profile Picture
+
+Public Key
+
+Private Key (stored securely for demonstration)
+
+Online Status
+
+Created Date
+
+======================================================================
+MODULE 2
+USER SEARCH
+======================================================================
+
+Users can search using username.
+
+Requirements
+
+• Instant Search
+
+• Username must be unique
+
+• Display
+
+Profile Picture
+
+Username
+
+Display Name
+
+Friend Status
+
+======================================================================
+MODULE 3
+FRIEND REQUEST SYSTEM
+======================================================================
+
+Users cannot message each other unless both become connected.
+
+Workflow
+
+Search User
+
+↓
+
+Send Friend Request
+
+↓
+
+Pending
+
+↓
+
+Receiver
+
+Accept
+
+Reject
+
+↓
+
+If Accepted
+
+Chat Enabled
+
+Features
+
+• Send Request
+
+• Cancel Request
+
+• Accept Request
+
+• Reject Request
+
+• Pending Requests
+
+• Sent Requests
+
+• Friends List
+
+======================================================================
+MODULE 4
+REAL-TIME CHAT
+======================================================================
+
+Use Socket.IO.
+
+Features
+
+• Real-time messaging
+
+• Typing Indicator
+
+• Online Status
+
+• Delivered Status
+
+• Seen Status
+
+• Unread Counter
+
+Supported Messages
+
+• Text
+
+• Images
+
+• Voice Messages
+
+• PDF
+
+• DOCX
+
+Future Scope (Display Only)
+
+• Video Sharing
+
+• Video Calls
+
+• Voice Calls
+
+• Group Chats
+
+• Location Sharing
+
+======================================================================
+END TO END ENCRYPTION
+======================================================================
+
+The server should NEVER store plaintext messages.
+
+Encryption Flow
+
+Sender
+
+↓
+
+User Types Message
+
+↓
+
+Generate Random AES-256 Session Key
+
+↓
+
+Encrypt Message using AES-256-GCM
+
+↓
+
+Encrypt AES Key using Receiver Public RSA Key
+
+↓
+
+Generate SHA-256 Hash
+
+↓
+
+Send
+
+Server Stores ONLY
+
+Ciphertext
+
+Encrypted AES Key
+
+IV / Nonce
+
+Authentication Tag
+
+Hash
+
+Timestamp
+
+Receiver
+
+↓
+
+Decrypt AES Key
+
+↓
+
+Decrypt Ciphertext
+
+↓
+
+Display Original Message
+
+======================================================================
+DATABASE COLLECTIONS
+======================================================================
+
+Users
+
+FriendRequests
+
+Chats
+
+Messages
+
+Files
+
+======================================================================
+MESSAGE TYPES
+======================================================================
+
+Text
+
+Image
+
+Voice
+
+PDF
+
+DOCX
+
+======================================================================
+FILE SHARING
+======================================================================
+
+Supported
+
+Images
+
+Voice Notes
+
+PDF
+
+DOCX
+
+Rejected
+
+EXE
+
+APK
+
+ZIP
+
+RAR
+
+Maximum File Size
+
+20 MB
+
+Store files in Cloudinary.
+
+Store only metadata inside MongoDB.
+
+======================================================================
+ENCRYPTION VISUALIZATION
+======================================================================
+
+THIS IS THE MAIN FEATURE OF THE PROJECT.
+
+Every sent message should have a
+
+"View Encryption"
+
+button.
+
+When clicked, open a beautiful modal explaining every encryption step.
+
+Step 1
+
+Original Message
+
+Hello
+
+↓
+
+Step 2
+
+Generate AES Session Key
+
+↓
+
+Display Generated Key
+
+↓
+
+Step 3
+
+Encrypt Message
+
+↓
+
+Display Ciphertext
+
+↓
+
+Step 4
+
+Encrypt AES Key using RSA
+
+↓
+
+Display Encrypted AES Key
+
+↓
+
+Step 5
+
+Generate SHA-256 Hash
+
+↓
+
+Display Hash
+
+↓
+
+Step 6
+
+Transmit Message
+
+Animation
+
+Sender
+
+↓
+
+Internet
+
+↓
+
+Server
+
+↓
+
+Receiver
+
+↓
+
+Step 7
+
+Receiver decrypts AES Key
+
+↓
+
+Step 8
+
+Receiver decrypts Ciphertext
+
+↓
+
+Display Original Message
+
+Include beautiful animations using React Native Reanimated.
+
+The objective is to help faculty understand exactly how encrypted communication works.
+
+======================================================================
+NORMAL MODE
+======================================================================
+
+Normal users only see
+
+Hello
+
+The encryption process remains hidden.
+
+======================================================================
+DEMO MODE
+======================================================================
+
+A switch named
+
+Demo Mode
+
+should exist in Settings.
+
+When enabled,
+
+every message displays
+
+View Encryption
+
+This mode is only for academic demonstrations.
+
+======================================================================
+CHAT UI
+======================================================================
+
+Modern UI inspired by WhatsApp, Signal, and Discord.
+
+Include
+
+Conversation List
+
+Friend List
+
+Search Bar
+
+Chat Screen
+
+Message Bubble
+
+Message Input
+
+Emoji Button
+
+Attachment Button
+
+Voice Recording Button
+
+Encryption Button
+
+Responsive Layout
+
+Smooth Animations
+
+Dark Theme
+
+Glassmorphism
+
+Rounded Components
+
+Gradient Buttons
+
+Professional Color Palette
+
+======================================================================
+SETTINGS
+======================================================================
+
+Profile
+
+Edit Profile
+
+Change Password
+
+Dark Mode
+
+Demo Mode Toggle
+
+Logout
+
+======================================================================
+ADMIN DASHBOARD
+======================================================================
+
+Admin cannot read user messages.
+
+Dashboard only displays
+
+Total Users
+
+Online Users
+
+Total Messages
+
+Friend Requests
+
+Files Shared
+
+Server Status
+
+======================================================================
+SECURITY
+======================================================================
+
+Implement
+
+Helmet
+
+Rate Limiting
+
+CORS
+
+Input Validation
+
+JWT
+
+bcrypt
+
+Secure Password Hashing
+
+Input Sanitization
+
+Secure File Validation
+
+Never expose private keys through public APIs.
+
+======================================================================
+DOCKER
+======================================================================
+
+Create Docker support for local development only.
+
+Include
+
+• Frontend Dockerfile
+• Backend Dockerfile
+• docker-compose.yml
+
+Docker Compose must start
+
+Backend
+
+MongoDB
+
+Mongo Express
+
+Frontend (if applicable for development)
+
+All services should communicate through Docker networking.
+
+======================================================================
+LOCAL DEVELOPMENT
+======================================================================
+
+The project must run completely on a local machine.
+
+Provide
+
+• Environment variables
+• Installation steps
+• npm install commands
+• Docker Compose commands
+• Local development workflow
+• Folder setup
+• Database configuration
+• Cloudinary configuration
+• Mongo Express access
+
+Do NOT include cloud deployment, production deployment, CI/CD pipelines, Kubernetes, or hosting instructions.
+
+======================================================================
+README
+======================================================================
+
+Generate a professional README containing
+
+Project Overview
+
+Features
+
+Technology Stack
+
+Architecture
+
+Folder Structure
+
+Installation Guide
+
+Environment Variables
+
+Running the Backend
+
+Running the Frontend
+
+Running Docker Containers
+
+MongoDB Configuration
+
+Mongo Express Configuration
+
+Cloudinary Configuration
+
+API Documentation
+
+Socket Events
+
+Database Collections
+
+Encryption Workflow
+
+Application Screens
+
+Future Scope
+
+======================================================================
+CODING STANDARDS
+======================================================================
+
+• Use TypeScript throughout the project.
+
+• Follow clean architecture.
+
+• Separate Controllers, Routes, Services, Models, Middleware, Utilities, and Socket logic.
+
+• Create reusable React Native components.
+
+• Use async/await.
+
+• Implement centralized error handling.
+
+• Validate all inputs.
+
+• Write modular, scalable, and maintainable code.
+
+• Add meaningful comments where appropriate.
+
+======================================================================
+IMPORTANT DEVELOPMENT INSTRUCTIONS
+======================================================================
+
+Do NOT generate the complete project in one response.
+
+Develop the project module by module.
+
+After each module,
+
+1. Complete the implementation.
+2. Verify the module works locally.
+3. Ensure code quality.
+4. Then continue to the next module.
+
+Never skip verification.
+
+Maintain a consistent folder structure and architecture throughout the project.
+
+The encryption implementation should be realistic using RSA for key exchange and AES-256-GCM for message encryption.
+
+The encryption visualization should be educational while ensuring the server stores only encrypted data and never plaintext messages.
+```

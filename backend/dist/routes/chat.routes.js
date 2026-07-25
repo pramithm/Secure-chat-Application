@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const chat_controller_1 = require("../controllers/chat.controller");
+const auth_middleware_1 = require("../middlewares/auth.middleware");
+const upload_middleware_1 = require("../middlewares/upload.middleware");
+const router = (0, express_1.Router)();
+router.get('/', auth_middleware_1.authenticateJWT, chat_controller_1.getUserChats);
+router.post('/', auth_middleware_1.authenticateJWT, chat_controller_1.getOrCreateChat);
+router.get('/:chatId/messages', auth_middleware_1.authenticateJWT, chat_controller_1.getChatMessages);
+router.post('/upload', auth_middleware_1.authenticateJWT, upload_middleware_1.upload.single('file'), chat_controller_1.uploadAttachment);
+exports.default = router;
